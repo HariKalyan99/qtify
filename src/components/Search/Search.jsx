@@ -6,7 +6,7 @@ const Search = ({placeHolder}) => {
   return (
     <form className={styles.wrapper}>
         <div>
-            <input type="text" className={styles.search}/>
+            <input type="text" className={styles.search} placeholder={placeHolder}/>
         </div>
         <div>
             <button className={styles.searchButton} type='submit'>
