@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Search.module.css'
 import {ReactComponent as SearchIcon} from '../../assets/Search icon.svg'
 
-const Search = ({}) => {
+const Search = ({placeHolder}) => {
   return (
     <form className={styles.wrapper}>
         <div>
