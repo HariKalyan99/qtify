@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import { fetchTopAlbums } from './api/api';
 import Card from './components/Card/Card';
 import styles from './App.module.css'
+import Section from './components/Section/Section';
 
 function App() {
   const [getData, setData] = useState([]);
@@ -27,10 +28,11 @@ function App() {
       <Navbar />
       <Hero />
       {/* <div className={styles.container}> */}
-      {getData.map((topAlbum) => (
+      {/* {getData.map((topAlbum) => (
         <Card data={topAlbum} type={'album'} key={topAlbum.id}/>
-      ))}
+      ))} */}
       {/* </div> */}
+      <Section data={getData} title={"Top album"} type={"album"}/>
     </div>
   );
 }
