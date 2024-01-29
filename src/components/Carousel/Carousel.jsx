@@ -10,8 +10,8 @@ import 'swiper/css/navigation';
 const Controls = ({data}) => {
     const swiper = useSwiper();
     useEffect(() => {
-        swiper.slideTo(0,400);
-    }, [data]);
+        swiper.slideTo(0, null);
+    }, [data, swiper]);
     return <></>;
 }
 

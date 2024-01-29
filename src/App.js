@@ -32,7 +32,9 @@ function App() {
         <Card data={topAlbum} type={'album'} key={topAlbum.id}/>
       ))} */}
       {/* </div> */}
-      <Section data={getData} title={"Top album"} type={"album"}/>
+      <div >
+      <Section data={getData} title={"Top album"} type={"album"} />
+      </div>
     </div>
   );
 }
