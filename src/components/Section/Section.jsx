@@ -18,7 +18,7 @@ const Section = ({ data, title, type, filteredSongsDataVal, val, handleChange}) 
       <div className={styles.header}>
         <h3>{title}</h3>
         <h4 className={styles.toggleText} onClick={handleToggle}>
-          {!carouselToggle ? "Show all" : "Collapse All"}
+          {!carouselToggle ? type === "album" && "Show all" : type === "album" && "Collapse All"}
         </h4>
       </div>
       {type === "song" ? <BasicTabs value={val} handleChange={handleChange} /> : null}

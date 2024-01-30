@@ -104,6 +104,8 @@ function App() {
       <div className={styles.faqSection}>
       <Faq />
       </div>
+      <hr style={{border: "1px solid var(--color-white)", marginTop: "2rem"}}/>
+
     </div>
   );
 }
