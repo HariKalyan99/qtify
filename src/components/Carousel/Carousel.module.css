@@ -2,20 +2,21 @@
     position: relative;
 }
 
+
 .leftNavigation {
     cursor: pointer;
     position: absolute;
-    left: 0;
+    left: 10px;
     top: 40%;
     transform: translateY(-50%);
-    z-index: 10;
+    z-index: 100;
 }
 
 .rightNavigation {
     cursor: pointer;
     position: absolute;
-    right: 0;
+    right: 10px;
     top: 40%;
     transform: translateY(-50%);
-    z-index: 10;
+    z-index: 100;
 }

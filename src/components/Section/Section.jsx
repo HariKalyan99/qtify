@@ -1,36 +1,41 @@
 import React, { useState } from "react";
 import styles from "./Section.module.css";
-import { CircularProgress } from "@mui/material";
+import { Box, CircularProgress } from "@mui/material";
 import Card from "../Card/Card";
 import Carousel from "../Carousel/Carousel";
+import BasicTabs from "../Tabs/Tabs";
 
-const Section = ({ data, title, type }) => {
+const Section = ({ data, title, type, filteredSongsDataVal, val, handleChange}) => {
   // console.log(data);
-  const [carouselToggle, setCarouselToggle] = useState(true);
+  const [carouselToggle, setCarouselToggle] = useState(false);
 
   const handleToggle = () => {
     setCarouselToggle(!carouselToggle);
   };
+
   return (
     <div>
       <div className={styles.header}>
         <h3>{title}</h3>
         <h4 className={styles.toggleText} onClick={handleToggle}>
-          {!carouselToggle ? "Collapse" : "Show all"}
+          {!carouselToggle ? "Show all" : "Collapse All"}
         </h4>
       </div>
+      {type === "song" ? <BasicTabs value={val} handleChange={handleChange} /> : null}
       {data.length === 0 ? (
-        <CircularProgress />
+        <Box sx={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+          <CircularProgress />
+        </Box>
       ) : (
         <div className={styles.cardWrapper}>
-          {!carouselToggle ? (
+          {carouselToggle ? (
             <div className={styles.wrapper}>
-              {data.map((ele) => {
+              {filteredSongsDataVal.map((ele) => {
                 return <Card data={ele} type={type} key={ele.id} />;
               })}
             </div>
           ) : (
-            <Carousel data={data} renderComponent={(singleCard) => <Card data={singleCard} type={type}/>}/>
+            <Carousel data={filteredSongsDataVal} renderComponent={(singleCard) => <Card data={singleCard} type={type}/>}/>
           )}
         </div>
       )}
@@ -39,3 +44,4 @@ const Section = ({ data, title, type }) => {
 };
 
 export default Section;
+

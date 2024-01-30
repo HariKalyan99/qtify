@@ -4,7 +4,8 @@ import {ReactComponent as LeftArrow} from '../../assets/Group 3741.svg'
 import styles from './Carousel.module.css';
 
 
-const CarouselLeftNavigation = () => {
+
+const CarouselRightNavigations = () => {
     const swiper = useSwiper();
     const [isBeginning, setIsBeginning] = useState(swiper.isBeginning);
 
@@ -12,7 +13,7 @@ const CarouselLeftNavigation = () => {
         swiper.on("slideChange", function() {
             setIsBeginning(swiper.isBeginning);
         })
-    }, [])
+    }, [isBeginning])
   return (
     <div className={styles.leftNavigation}>
         {!isBeginning && <LeftArrow onClick={() => swiper.slidePrev()}/>}
@@ -20,4 +21,4 @@ const CarouselLeftNavigation = () => {
   )
 }
 
-export default CarouselLeftNavigation
+export default CarouselRightNavigations

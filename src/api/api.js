@@ -11,4 +11,14 @@ export const fetchTopAlbums = async () => {
     }
 }
 
+
+export const fetchAllSongs = async () => {
+    try{
+        const {data} = await axios.get(`${BACKEND_ENDPOINT}/songs`);
+        return data;
+    }catch(err) {
+        console.error("Error", err.message);
+    }
+}
+
 // this is maintained for modularity

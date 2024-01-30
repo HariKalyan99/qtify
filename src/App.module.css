@@ -1,17 +1,6 @@
-/* .App {
-  text-align: center;
-  font-family: "Poppins", sans-serif;
-} */
-
-/* 
-*/
-/* .container {
+.sectionContainer {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100vw;
-  height: 592px;
-  gap: 40px;
-  padding: 30px;
-}  */
+  flex-direction: column;
+  gap: 32px;
+  padding: 0px 30px 60px;
+}
