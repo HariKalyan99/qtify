@@ -24,7 +24,7 @@ const Section = ({ data, title, type, filteredSongsDataVal, val, handleChange}) 
       {type === "song" ? <BasicTabs value={val} handleChange={handleChange} /> : null}
       {data.length === 0 ? (
         <Box sx={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-          <CircularProgress />
+          <CircularProgress sx={{color: "var(--color-primary)"}}/>
         </Box>
       ) : (
         <div className={styles.cardWrapper}>

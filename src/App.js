@@ -2,13 +2,14 @@
 import { useEffect, useState } from 'react';
 import Hero from './components/Hero/Hero';
 import Navbar from './components/Navbar/Navbar';
-import { fetchAllSongs, fetchTopAlbums } from './api/api';
-// import Card from './components/Card/Card';
+import { fetchAllSongs, fetchNewAlbums, fetchTopAlbums } from './api/api';
 import styles from './App.module.css'
 import Section from './components/Section/Section';
+import Faq from './components/Faq/Faq';
 
 function App() {
   const [getData, setData] = useState([]);
+  const [getNewAlbumsData, setNewAlbumsData] = useState([]);
   const [getSongsData, setSongsData] = useState([]);
   const [filteredSongsDataVal, setFilteredSongsDataVal] = useState([]);
   const [val, setVal] = useState(0);
@@ -25,6 +26,15 @@ function App() {
       setData(data);
     }catch(err){
       console.log("Error", err);
+    }
+  }
+
+  const generateNewAlbums = async () => {
+    try{
+      const data = await fetchNewAlbums();
+      setNewAlbumsData(data);
+    }catch(error){
+      console.log("Error", error);
     }
   }
 
@@ -54,7 +64,6 @@ function App() {
   }, [val])
   
   const filteredSongsData = (data) => {
-    console.log(data);
     setFilteredSongsDataVal(data);
   }
 
@@ -72,6 +81,7 @@ function App() {
 
   useEffect(() => {
     generateTopAlbums();
+    generateNewAlbums();
     generateAllSongsData();
   }, [])
 
@@ -86,11 +96,13 @@ function App() {
       {/* </div> */}
       <div className={styles.sectionContainer}>
       <Section data={getData} title={"Top albums"} type={"album"} filteredSongsDataVal={getData}/>
-      <hr style={{border: "1px solid var(--color-primary)"}}/>
-      <Section data={getData} title={"New albums"} type={"album"} filteredSongsDataVal={getData}/>
+      <Section data={getNewAlbumsData} title={"New albums"} type={"album"} filteredSongsDataVal={getNewAlbumsData}/>
       <hr style={{border: "1px solid var(--color-primary)"}}/>
       <Section data={getSongsData} title={"Songs"} type={"song"} filteredSongsDataVal={filteredSongsDataVal} val={val}  handleChange={handleChange}/>
       <hr style={{border: "1px solid var(--color-primary)"}}/>
+      </div>
+      <div className={styles.faqSection}>
+      <Faq />
       </div>
     </div>
   );

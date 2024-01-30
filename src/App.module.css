@@ -4,3 +4,9 @@
   gap: 32px;
   padding: 0px 30px 60px;
 }
+
+.faqSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

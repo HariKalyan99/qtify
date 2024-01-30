@@ -5,7 +5,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-function TabPanel(props) {
+function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
@@ -25,7 +25,7 @@ function TabPanel(props) {
   );
 }
 
-TabPanel.propTypes = {
+CustomTabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
@@ -43,7 +43,14 @@ export default function BasicTabs({val, handleChange}) {
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={val} onChange={handleChange} aria-label="basic tabs example" sx={{textColor: 'var(--color-primary)'}}>
+      <Tabs
+          value={val}
+          onChange={handleChange}
+          aria-label="basic tabs example"
+          textColor="var(--color-primary)"
+          sx={{color: "var(--color-primary)"}}
+          indicatorColor='var(--color-primary)'
+        >
           <Tab label="All" {...a11yProps(0)} />
           <Tab label="Rock" {...a11yProps(1)} />
           <Tab label="Pop" {...a11yProps(2)} />
@@ -51,16 +58,16 @@ export default function BasicTabs({val, handleChange}) {
           <Tab label="Jazz" {...a11yProps(4)} />
         </Tabs>
       </Box>
-      <TabPanel value={val} index={0}>
-      </TabPanel>
-      <TabPanel value={val} index={1}>
-      </TabPanel>
-      <TabPanel value={val} index={2}>
-      </TabPanel>
-      <TabPanel value={val} index={3}>
-      </TabPanel>
-      <TabPanel value={val} index={4}>
-      </TabPanel>
+      <CustomTabPanel value={val} index={0}>
+      </CustomTabPanel>
+      <CustomTabPanel value={val} index={1}>
+      </CustomTabPanel>
+      <CustomTabPanel value={val} index={2}>
+      </CustomTabPanel>
+      <CustomTabPanel value={val} index={3}>
+      </CustomTabPanel>
+      <CustomTabPanel value={val} index={4}>
+      </CustomTabPanel>
     </Box>
   );
 }

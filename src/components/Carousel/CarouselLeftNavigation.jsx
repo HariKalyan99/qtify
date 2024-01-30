@@ -13,7 +13,7 @@ const CarouselRightNavigations = () => {
         swiper.on("slideChange", function() {
             setIsBeginning(swiper.isBeginning);
         })
-    }, [isBeginning])
+    }, [swiper])
   return (
     <div className={styles.leftNavigation}>
         {!isBeginning && <LeftArrow onClick={() => swiper.slidePrev()}/>}
